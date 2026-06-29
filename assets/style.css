@@ -274,7 +274,8 @@ section > .container, section > .container-narrow { position: relative; z-index:
   margin: 0 auto;
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; }
-.nav-logo img { height: 28px; width: auto; }
+.nav-logo img { height: 46px; width: auto; }
+@media (max-width: 600px) { .nav-logo img { height: 38px; } }
 .nav-links {
   display: flex;
   align-items: center;
@@ -806,6 +807,11 @@ section > .container, section > .container-narrow { position: relative; z-index:
   color: var(--text-0);
   margin-bottom: 4px;
 }
+.founder-handle {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  margin-bottom: 10px;
+}
 .founder-role {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1114,8 +1120,23 @@ section > .container, section > .container-narrow { position: relative; z-index:
 }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
-.footer-brand img { height: 32px; margin-bottom: 18px; }
-.footer-brand p { color: var(--text-2); font-size: 0.92rem; max-width: 320px; }
+.footer-brand img { height: 48px; margin-bottom: 18px; }
+.footer-brand p { color: var(--text-2); font-size: 0.92rem; max-width: 320px; margin-bottom: 18px; }
+.footer-enterprise {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--cyan);
+  padding: 9px 16px;
+  border: 1px solid rgba(0,212,255,0.30);
+  border-radius: 999px;
+  background: var(--cyan-soft);
+  transition: background .2s ease, border-color .2s ease;
+}
+.footer-enterprise:hover { background: rgba(0,212,255,0.18); border-color: var(--cyan); }
 .footer h5 {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1137,11 +1158,152 @@ section > .container, section > .container-narrow { position: relative; z-index:
   font-family: var(--font-mono);
 }
 .footer-legal {
-  margin-top: 14px;
-  font-size: 0.78rem;
-  color: var(--text-3);
-  opacity: 0.7;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-2);
   font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- WHATSAPP SIMULATION (LIS EM AÇÃO) ---------- */
+.wa-sim {
+  max-width: 480px;
+  margin: 0 auto;
+  background: #0b141a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(37,211,102,0.10);
+  display: flex;
+  flex-direction: column;
+}
+.wa-sim-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  background: #1f2c34;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.wa-sim-av {
+  flex: none;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  display: grid; place-items: center;
+  font-weight: 800; color: #fff; font-size: 1.05rem;
+}
+.wa-sim-id { flex: 1; min-width: 0; }
+.wa-sim-id b { display: block; font-size: 0.98rem; color: #e9edef; font-weight: 600; letter-spacing: -0.01em; }
+.wa-sim-id .st {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.74rem; color: #8696a0; margin-top: 1px;
+}
+.wa-sim-id .st::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: #25D366; box-shadow: 0 0 8px rgba(37,211,102,0.7);
+}
+.wa-sim-tag {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #8696a0;
+  padding: 4px 9px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.wa-sim-body {
+  height: 440px;
+  overflow-y: auto;
+  padding: 18px 14px;
+  display: flex; flex-direction: column; gap: 9px;
+  background-color: #0b141a;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 22px 22px;
+  scroll-behavior: smooth;
+}
+.wa-sim-body::-webkit-scrollbar { width: 6px; }
+.wa-sim-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 3px; }
+.wa-bub {
+  max-width: 82%;
+  padding: 8px 11px 6px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.42;
+  position: relative;
+  animation: waPop .22s ease;
+  word-wrap: break-word;
+}
+@keyframes waPop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.wa-bub .wa-txt { display: block; color: #e9edef; }
+.wa-bub .wa-time {
+  display: block; text-align: right;
+  font-size: 0.62rem; color: rgba(233,237,239,0.5);
+  margin-top: 3px; font-family: var(--font-mono);
+}
+.wa-lis {
+  align-self: flex-start;
+  background: #202c33;
+  border-top-left-radius: 4px;
+}
+.wa-lead {
+  align-self: flex-end;
+  background: #005c4b;
+  border-top-right-radius: 4px;
+}
+.wa-lead .wa-time { color: rgba(233,237,239,0.55); }
+.wa-typing {
+  align-self: flex-start;
+  background: #202c33;
+  border-top-left-radius: 4px;
+  display: inline-flex; gap: 4px; align-items: center;
+  padding: 12px 14px;
+}
+.wa-typing i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #8696a0; display: inline-block;
+  animation: waBlink 1s infinite ease-in-out;
+}
+.wa-typing i:nth-child(2) { animation-delay: .18s; }
+.wa-typing i:nth-child(3) { animation-delay: .36s; }
+@keyframes waBlink { 0%,60%,100% { opacity: .3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+.wa-sys {
+  align-self: center;
+  max-width: 92%;
+  text-align: center;
+  font-size: 0.74rem;
+  color: #d3a84a;
+  background: rgba(255,195,74,0.10);
+  border: 1px solid rgba(255,195,74,0.22);
+  padding: 7px 14px; border-radius: 10px;
+  animation: waPop .22s ease;
+  font-family: var(--font-mono); letter-spacing: 0.02em;
+}
+.wa-sim-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 11px 16px;
+  background: #1f2c34;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.wa-sim-hint { font-size: 0.72rem; color: #8696a0; font-family: var(--font-mono); letter-spacing: 0.02em; }
+.wa-sim-replay {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 0.74rem;
+  color: #25D366;
+  padding: 7px 13px; border-radius: 999px;
+  border: 1px solid rgba(37,211,102,0.30);
+  background: rgba(37,211,102,0.08);
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.wa-sim-replay:hover { background: rgba(37,211,102,0.18); }
+.wa-sim-replay svg { width: 14px; height: 14px; }
+@media (max-width: 520px) {
+  .wa-sim { max-width: 100%; }
+  .wa-sim-body { height: 400px; }
+  .wa-bub { max-width: 86%; }
 }
 
 /* ---------- WHATSAPP FLOAT ---------- */
